@@ -1,0 +1,75 @@
+# انسخه إلى config.yaml ثم عدّله.
+account:
+  username: ""
+  password: ""
+  session_file: .sessions/default.json
+  totp_secret: null          # Base32 إن كان الحساب يستخدم 2FA
+  proxy: null
+  locale: en_US
+  timezone_offset: 0
+
+limits:
+  warmup_days: 14            # تسخين تدريجي: الحصص تبدأ بـ25% وتصل 100% بعد هذه المدة
+  daily_follow: 180
+  daily_unfollow: 180
+  daily_like: 400
+  daily_comment: 60
+  daily_harvest: 2000
+  daily_enrich: 400
+  hourly_follow: 25
+  hourly_unfollow: 25
+  hourly_like: 60
+  hourly_comment: 10
+  hourly_harvest: 400
+  hourly_enrich: 80
+  max_following_total: 7500
+
+pacing:
+  min_delay: 25
+  max_delay: 90
+  break_every: 40
+  break_min: 300
+  break_max: 900
+  active_hours: [8, 23]
+  active_days: [0, 1, 2, 3, 4, 5, 6]
+  timezone: Asia/Baghdad
+
+targets:
+  seeds: []                  # حسابات منافسة: نجمع متابعيها
+  hashtags: []
+  locations: []
+  posts: []                  # روابط منشورات: نجمع من تفاعل معها
+  min_pool: 200
+  harvest_per_source: 300
+  filters:
+    min_followers: 50
+    max_followers: 50000
+    skip_private: true
+    skip_verified: true
+    skip_business: false
+    require_profile_pic: true
+    min_posts: 3
+    max_following_ratio: 3.0
+    languages: []
+
+unfollow:
+  enabled: true
+  min_age_hours: 48
+  whitelist: []
+  keep_followers: true
+  refresh_followers_every: 50
+
+comments:
+  enabled: false
+  per_target: 1
+  templates:
+    - "🔥 {رائع|جميل|مميز}"
+    - "محتوى {قوي|نظيف|مرتب} 👏"
+
+storage:
+  db_path: data/instarashq.db
+  export_dir: exports
+
+logging:
+  level: INFO
+  file: logs/instarashq.log

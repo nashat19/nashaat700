@@ -1,0 +1,5 @@
+instagrapi>=2.1.2
+PyYAML>=6.0.1
+rich>=13.7.0
+python-dotenv>=1.0.1
+cryptography>=42.0.0
